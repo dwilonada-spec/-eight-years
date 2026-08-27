@@ -54,6 +54,14 @@ button {
   font: inherit;
 }
 
+.opening-actions {
+  display: flex;
+  width: min(100%, 22rem);
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.85rem;
+}
+
 .page-shell {
   width: 100%;
 }
@@ -91,8 +99,8 @@ h1 {
   letter-spacing: 0;
 }
 
-.open-button {
-  width: fit-content;
+.open-button,
+.music-button {
   min-height: 3.35rem;
   max-width: 100%;
   padding: 0.95rem 1.35rem 1rem;
@@ -113,14 +121,40 @@ h1 {
     box-shadow 220ms ease;
 }
 
-.open-button:hover {
+.open-button {
+  width: 100%;
+}
+
+.music-button {
+  min-height: 2.8rem;
+  padding-block: 0.72rem;
+  background: transparent;
+  box-shadow: none;
+  color: var(--muted);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.music-button[aria-pressed="true"] {
+  border-color: rgba(141, 96, 75, 0.36);
+  background: rgba(141, 96, 75, 0.08);
+  color: var(--accent);
+}
+
+.open-button:hover,
+.music-button:hover {
   transform: translateY(-1px);
   border-color: rgba(36, 31, 26, 0.45);
   background: rgba(255, 252, 247, 0.92);
   box-shadow: 0 1rem 2.4rem rgba(67, 48, 35, 0.15);
 }
 
-.open-button:focus-visible {
+.music-button:hover {
+  box-shadow: none;
+}
+
+.open-button:focus-visible,
+.music-button:focus-visible {
   outline: 3px solid rgba(141, 96, 75, 0.32);
   outline-offset: 5px;
 }
@@ -318,6 +352,7 @@ h1 {
     font-size: clamp(2.58rem, 14vw, 3.25rem);
   }
 
+  .opening-actions,
   .open-button {
     width: 100%;
   }
